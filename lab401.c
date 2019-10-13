@@ -8,18 +8,18 @@
 int main ( )
 { 
           int     fd [2],  bytesread ;
-          char    message [100] ;
+          char    msg [100] ;
           char    upper [100];
           pipe( fd ) ; 
           if ( fork (  )  ==  0 )    
           { 
                 printf(" Input a String: ");
-                scanf("%s",&message);
+                scanf("%s",&msg);
                 close( fd [READ] ) ; 
-                write( fd [WRITE], message, strlen(message) + 1) ;
+                write( fd [WRITE], msg, strlen(msg) + 1) ;
                 close( fd [WRITE] ) ;                                       /*  close used end  */
           }  
-          else                                                              /* parent,  reader*/
+          else                                                              /*  parent,  reader */
           { 
                 close( fd [WRITE] ) ; /* close unused end  */
                 read(fd [READ], upper, 100) ;
